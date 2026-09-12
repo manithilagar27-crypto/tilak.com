@@ -1,91 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tilak Website</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
         body {
-            font-family: Arial;
-            background: #f2f2f2;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 24px;
             text-align: center;
-            padding-top: 80px;
+            color: #333333;
         }
 
-        .box {
-            background: white;
-            width: 320px;
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #aaa;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px;
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555555;
+            font-size: 14px;
         }
 
-        button {
-            padding: 10px 30px;
-            background: blue;
-            color: white;
+        .form-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #ffffff;
             border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
         }
 
-        #profile {
-            display: none;
-        }
-
-        #profile img {
-            width: 200px;
-            border-radius: 10px;
+        .login-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
-
 <body>
 
-<div class="box" id="login">
-    <h2>Tilak Website</h2>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
 
-    <input type="text" id="username" placeholder="Username">
-
-    <input type="password" id="password" placeholder="Password">
-
-    <br>
-
-    <button onclick="login()">Login</button>
-
-    <p id="message"></p>
-</div>
-
-<div class="box" id="profile">
-    <h2>Welcome, Tilak!</h2>
-
-    <img src="myphoto.jpg" alt="My Picture">
-
-    <p>Login Successful!</p>
-</div>
-
-<script>
-function login() {
-
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    if (username === "tilak" && password === "12345") {
-
-        document.getElementById("login").style.display = "none";
-        document.getElementById("profile").style.display = "block";
-
-    } else {
-
-        document.getElementById("message").innerHTML =
-            "Invalid Username or Password";
-    }
-}
-</script>
+            <button type="submit" class="login-btn">Sign In</button>
+        </form>
+    </div>
 
 </body>
 </html>
